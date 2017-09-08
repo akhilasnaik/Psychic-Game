@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="Assets/Css/reset.css">
+    <link rel="stylesheet" type="text/css" href="Assets/Css/style.css">
+    <title> Psychic Game </title>
+</head>
+
+<body>
+    <div id="game"> <p>Psychic Game</p> </div>
+    <h3 id="UserGuess"> User Guess : </h3>
+    <h3 id="ComputerGuess"> Computer Guess : </h3>
+    <h3 id="wins"> Wins : </h3>
+    <h3 id="Losses"> Losses : </h3>
+    <h3 id="GuessesSoFar"> Guesses So Far : </h3>
+    <h3 id="GuessesLeft"> Guesses Left : </h3>   
+    <script type="text/javascript">
+  
+        var WinsCount = 0;
+        var LossesCount = 0;
+        var GuessesLeftCount = 10;
+        var GuessesSoFarCount = 0;
+        var computerChoices = ["a", "b", "c", "d", "e"];
+
+        document.onkeyup = function(event) {
+            // Determines which key was pressed.
+            var userGuess = event.key;
+            // Randomly chooses a choice from the options array. This is the Computer's guess.
+            var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)]
+            // Alerts the key the user pressed (userGuess).
+             if (userGuess === computerGuess) {
+                // if ((userGuess === "a") && (computerGuess === "a")) {
+                WinsCount++;
+                GuessesSoFarCount++;
+                GuessesLeftCount--;
+                console.log("userGuess :" + userGuess);
+                console.log("computerGuess :" + computerGuess);
+                console.log("WinsCount :" + WinsCount);
+                console.log("LossesCount :" + LossesCount);             
+                console.log("GuessesSoFarCount :" + GuessesSoFarCount);
+                console.log("GuessesLeftCount :" + GuessesLeftCount);
+                console.log("---------------------------------");
+               } 
+            else {
+                LossesCount++;
+                GuessesSoFarCount++;
+                GuessesLeftCount--;
+                console.log("userGuess :" + userGuess);
+                console.log("computerGuess :" + computerGuess);
+                console.log("WinsCount :" + WinsCount);
+                 console.log("LossesCount :" + LossesCount);       
+                console.log("GuessesSoFarCount :" + GuessesSoFarCount);
+                console.log("GuessesLeftCount :" + GuessesLeftCount);
+                 console.log("---------------------------------");
+               }
+    
+           document.getElementById("UserGuess").innerHTML = "User Guess:" +userGuess;
+           document.getElementById("ComputerGuess").innerHTML = "Computer Guess:" +computerGuess;          
+           document.getElementById("wins").innerHTML = "Wins:" +WinsCount;
+           document.getElementById("Losses").innerHTML = "Losses:" +LossesCount;
+           document.getElementById("GuessesLeft").innerHTML = "Guesses Left Count:" +GuessesLeftCount;
+           document.getElementById("GuessesSoFar").innerHTML = "Guesses So Far Count:" +GuessesSoFarCount;
+          
+         };
+            // for ( var i=0 ; i < User.length ; i++) {}
+            //Random r = new Random();
+            //char c = (char) (r.nextInt(26) + 'a');
+            //$("#userGuess").on("click", function() {
+            //alert ("Wins");
+            //WinsCount++;
+            //alert ("You have scored " + Wins + ".......");
+            //});
+    </script>
+  </body>
+</html>
